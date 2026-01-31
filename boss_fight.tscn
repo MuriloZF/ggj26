@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdqcd1rsjw4uv"]
+[gd_scene load_steps=8 format=3 uid="uid://cdqcd1rsjw4uv"]
 
 [ext_resource type="Script" uid="uid://cqjq8leieof6h" path="res://boss_fight.gd" id="1_bhtn8"]
 [ext_resource type="PackedScene" uid="uid://ddu6trkcxoe8v" path="res://player.tscn" id="2_n65jo"]
 [ext_resource type="Texture2D" uid="uid://be0nmxaop3apg" path="res://Sprites/heart.png" id="3_n65jo"]
 [ext_resource type="Script" uid="uid://dl2rv0f4xe1eu" path="res://heart_container.gd" id="3_nq0y5"]
 [ext_resource type="PackedScene" uid="uid://bvqti4pjm32d2" path="res://mask.tscn" id="5_47mo0"]
+[ext_resource type="PackedScene" uid="uid://itefsw05f2dw" path="res://player_camera.tscn" id="6_y2k5v"]
 
 [sub_resource type="Curve2D" id="Curve2D_n65jo"]
 _data = {
@@ -15,7 +16,7 @@ point_count = 38
 [node name="bossFight" type="Node"]
 script = ExtResource("1_bhtn8")
 
-[node name="player" parent="." instance=ExtResource("2_n65jo")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("2_n65jo")]
 position = Vector2(546, 572)
 
 [node name="maskPath" type="Path2D" parent="."]
@@ -71,6 +72,11 @@ expand_mode = 3
 
 [node name="mask" parent="." instance=ExtResource("5_47mo0")]
 collision_mask = 0
+
+[node name="playerCamera" parent="." instance=ExtResource("6_y2k5v")]
+offset = Vector2(0, 450)
+process_callback = 0
+position_smoothing_speed = 10.0
 
 [connection signal="timeout" from="maskTimer" to="." method="_on_mask_timer_timeout"]
 [connection signal="timeout" from="fightTimer" to="." method="_on_fight_timer_timeout"]
