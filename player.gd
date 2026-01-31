@@ -61,9 +61,9 @@ func start(pos):
 	position = pos
 	
 func _on_mask_mask_hit() -> void:
-	if health >= 1:
-		health -= 1
-	else:
+	health -= 1
+	if health <= 0:
 		hide()
+		set_deferred("player", "true")
 	get_parent().get_node("healthCanvas/heartContainer").takeDamage(health)
 	
