@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkif5d5of0oeu"]
+
+[ext_resource type="Script" uid="uid://cxbf0846k7rwb" path="res://npc.gd" id="1_ideak"]
+[ext_resource type="Texture2D" uid="uid://crm20ekijfnbh" path="res://Sprites/NPC sprites/dance1.png" id="2_ul7y6"]
+[ext_resource type="Texture2D" uid="uid://cc11u2vvbtbbn" path="res://Sprites/NPC sprites/dance2.png" id="3_bc6q4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kh24r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ul7y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bc6q4")
+}],
+"loop": true,
+"name": &"dance",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kh24r"]
+radius = 48.0
+height = 112.0
+
+[node name="npc" type="RigidBody2D"]
+script = ExtResource("1_ideak")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_kh24r")
+animation = &"dance"
+frame = 1
+frame_progress = 0.5889251
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kh24r")
