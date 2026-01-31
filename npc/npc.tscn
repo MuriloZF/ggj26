@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://djrwlxleqt1y1"]
+
+[ext_resource type="Script" uid="uid://bvrvyluq2rod6" path="res://npc/npc_script.gd" id="1_2xp5l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y32ns"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wtcfe"]
+
+[node name="Enemy" type="Area2D" unique_id=600313847]
+script = ExtResource("1_2xp5l")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=775764228]
+shape = SubResource("RectangleShape2D_y32ns")
+debug_color = Color(0.9458224, 6.4495207e-06, 0.5929696, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=666070001]
+sprite_frames = SubResource("SpriteFrames_wtcfe")
