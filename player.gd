@@ -1,5 +1,5 @@
 extends CharacterBody2D
-signal collision
+signal onPlayerInteraction
 @export var speed = 400
 @export var health = 5
 @export var win = 0
@@ -68,3 +68,8 @@ func _on_mask_mask_hit() -> void:
 		set_deferred("player", "true")
 	get_parent().get_node("healthCanvas/heartContainer").takeDamage(health)
 	
+
+
+func _on_npc_collision() -> void:
+	if Input.is_action_pressed("interact"):
+		get_parent().get_node("club")._on_player_interaction
