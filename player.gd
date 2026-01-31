@@ -67,8 +67,7 @@ func _on_mask_mask_hit() -> void:
 		set_deferred("player", "true")
 	get_parent().get_node("healthCanvas/heartContainer").takeDamage(health)
 	
-
-
-func _on_npc_collision() -> void:
+func _on_enemy_npc_collision() -> void:
+	onPlayerInteraction.emit()
 	if Input.is_action_pressed("interact"):
-		get_parent().get_node("club")._on_player_interaction
+		$phraseLayer.showMessage()

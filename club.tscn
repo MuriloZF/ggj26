@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://chqwlrbfitpa6"]
+[gd_scene load_steps=9 format=3 uid="uid://chqwlrbfitpa6"]
 
 [ext_resource type="Texture2D" uid="uid://bptqxp5lrj4yc" path="res://Sprites/castle.jpeg" id="1_23av1"]
 [ext_resource type="Script" uid="uid://djcfvsgtw7r0j" path="res://club.gd" id="1_tw7k0"]
 [ext_resource type="PackedScene" uid="uid://ddu6trkcxoe8v" path="res://player.tscn" id="2_tw7k0"]
 [ext_resource type="PackedScene" uid="uid://djrwlxleqt1y1" path="res://npc/npc.tscn" id="3_tymmd"]
-[ext_resource type="Script" uid="uid://bsiyxyoh55xeo" path="res://npc/npc.gd" id="5_tymmd"]
 [ext_resource type="Script" uid="uid://co0pmgabnoelo" path="res://phrase_layer.gd" id="6_yfuin"]
 [ext_resource type="Texture2D" uid="uid://dkj0lp1itblm0" path="res://icon.svg" id="7_lkv2k"]
 
@@ -34,7 +33,6 @@ position = Vector2(582, 639)
 [node name="Enemy" parent="." instance=ExtResource("3_tymmd")]
 position = Vector2(819, 506)
 collision_layer = 2
-script = ExtResource("5_tymmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 light_mask = 2
@@ -78,4 +76,5 @@ position = Vector2(200, 160)
 rotation = 0.0540015
 
 [connection signal="onPlayerInteraction" from="player" to="." method="_on_player_on_player_interaction"]
+[connection signal="onPlayerInteraction" from="player" to="Enemy" method="_on_player_on_player_interaction"]
 [connection signal="npcCollision" from="Enemy" to="player" method="_on_enemy_npc_collision"]
