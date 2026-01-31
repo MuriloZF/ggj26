@@ -23,6 +23,10 @@ radius = 48.0
 height = 112.0
 
 [node name="npc" type="RigidBody2D"]
+collision_layer = 2
+can_sleep = false
+freeze_mode = 1
+custom_integrator = true
 script = ExtResource("1_ideak")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

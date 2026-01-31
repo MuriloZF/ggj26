@@ -12,9 +12,6 @@ enum difficult{
 var difficultLevel
 
 func _ready():
-	var maskTypes = Array($mask/AnimatedSprite2D.sprite_frames.get_animation_names())
-	$mask/AnimatedSprite2D.animation = maskTypes.pick_random()
-	$mask/AnimatedSprite2D.play()
 	setDifficult()
 	update_difficult()
 	$fightTimer.start()

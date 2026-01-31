@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbxkdxfvay15i"]
+
+[ext_resource type="PackedScene" uid="uid://ddu6trkcxoe8v" path="res://player.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bkif5d5of0oeu" path="res://npc.tscn" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cpv5ond17018h" path="res://Sprites/Backgrounds/mainBackground.png" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://itefsw05f2dw" path="res://player_camera.tscn" id="4_1bvp3"]
+
+[node name="main" type="Node"]
+
+[node name="player" parent="." instance=ExtResource("1_h2yge")]
+position = Vector2(1440, 632)
+
+[node name="playerCamera" parent="player" instance=ExtResource("4_1bvp3")]
+position = Vector2(-528, -16)
+
+[node name="npc" parent="." instance=ExtResource("2_1bvp3")]
+z_index = 1
+position = Vector2(373, 624)
+
+[node name="npc2" parent="." instance=ExtResource("2_1bvp3")]
+position = Vector2(712, 544)
+
+[node name="npc3" parent="." instance=ExtResource("2_1bvp3")]
+position = Vector2(632, 992)
+
+[node name="npc4" parent="." instance=ExtResource("2_1bvp3")]
+position = Vector2(424, 304)
+
+[node name="npc5" parent="." instance=ExtResource("2_1bvp3")]
+position = Vector2(1512, 344)
+
+[node name="background" type="Parallax2D" parent="."]
+scroll_offset = Vector2(912, 616)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="background"]
+z_index = -1
+position = Vector2(48, 0)
+texture = ExtResource("3_lquwl")
