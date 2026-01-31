@@ -45,7 +45,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match stats:
 		npcState.idle: 
 			idle_state()
@@ -53,4 +53,6 @@ func _process(delta: float) -> void:
 			speaking_state()
 		
 		
-	
+
+func _on_body_entered(body: Node2D) -> void:
+	stats = speaking_state()

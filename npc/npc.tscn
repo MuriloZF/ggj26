@@ -15,3 +15,5 @@ debug_color = Color(0.9458224, 6.4495207e-06, 0.5929696, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=666070001]
 sprite_frames = SubResource("SpriteFrames_wtcfe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
