@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvqti4pjm32d2"]
+
+[ext_resource type="Script" uid="uid://dbimlcpsdfmfc" path="res://mask.gd" id="1_oilhy"]
+[ext_resource type="Texture2D" uid="uid://dkj0lp1itblm0" path="res://icon.svg" id="2_1rsgv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8yek2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1rsgv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgd7e"]
+size = Vector2(128, 129)
+
+[node name="mask" type="RigidBody2D" groups=["mask"]]
+collision_mask = 0
+script = ExtResource("1_oilhy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8yek2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_hgd7e")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
