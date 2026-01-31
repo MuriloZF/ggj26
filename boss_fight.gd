@@ -20,6 +20,7 @@ func _on_mask_timer_timeout() -> void:
 	mask.linear_velocity = velocity.rotated(direction)
 	add_child(mask)
 	
+	
 func _on_fight_timer_timeout() -> void:
 	$maskTimer.stop()
 	pass # finish battle
