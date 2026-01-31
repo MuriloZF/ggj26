@@ -1,23 +1,21 @@
 extends CharacterBody2D
 signal collision
 @export var speed = 400
-var screenSize
 
 func _ready():
-	# Get screen size
-	screenSize = get_viewport_rect().size
+	pass
 	#hide()
 
-func _process(delta):
+func _physics_process(delta):
 	# Player movement
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed("right"):
 		velocity.x += 1
-	elif Input.is_action_pressed("left"):
+	if Input.is_action_pressed("left"):
 		velocity.x -= 1
-	elif Input.is_action_pressed("up"):
+	if Input.is_action_pressed("up"):
 		velocity.y -= 1
-	elif Input.is_action_pressed("down"):
+	if Input.is_action_pressed("down"):
 		velocity.y += 1
 	
 	# Normalize the speed + animation
@@ -27,10 +25,12 @@ func _process(delta):
 	else:
 		#stop animation
 		pass
+	'''
 	# Clamps player (won't leave the screen)
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screenSize)
-	
+	'''
+	move_and_slide()
 	# Sets animation
 	if velocity.x == 0 && velocity.y == 0: # is standing
 		# play standing animation
