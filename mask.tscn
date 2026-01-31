@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvqti4pjm32d2"]
 
 [ext_resource type="Script" uid="uid://dbimlcpsdfmfc" path="res://mask.gd" id="1_oilhy"]
-[ext_resource type="Texture2D" uid="uid://dkj0lp1itblm0" path="res://icon.svg" id="2_1rsgv"]
+[ext_resource type="Texture2D" uid="uid://cjbw7uo6xug1x" path="res://Sprites/sr5z7a8265905eaws3.png" id="2_oilhy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8yek2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1rsgv")
+"texture": ExtResource("2_oilhy")
 }],
 "loop": true,
 "name": &"default",
@@ -22,6 +22,7 @@ collision_mask = 0
 script = ExtResource("1_oilhy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_8yek2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
