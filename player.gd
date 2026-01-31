@@ -2,6 +2,7 @@ extends CharacterBody2D
 signal collision
 @export var speed = 400
 @export var health = 5
+@export var win = 0
 
 func _ready():
 	pass
