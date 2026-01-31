@@ -22,9 +22,9 @@ func _physics_process(delta):
 	# Normalize the speed + animation
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		#play animation
+		$playerAnimation.play()
 	else:
-		#stop animation
+		$playerAnimation.stop()
 		pass
 	'''
 	# Clamps player (won't leave the screen)
@@ -34,20 +34,29 @@ func _physics_process(delta):
 	move_and_slide()
 	# Sets animation
 	if velocity.x == 0 && velocity.y == 0: # is standing
-		# play standing animation
-		pass
+		$playerAnimation.animation = "idle"
+		$playerAnimation.flip_v = false
+		$playerAnimation.flip_h = true
+		
 	elif velocity.x > 0: # moving right
-		# play right animation
-		pass
+		$playerAnimation.animation = "side"
+		$playerAnimation.flip_v = false
+		$playerAnimation.flip_h = true
+		
 	elif velocity.x < 0: # moving left
-		# play left animation
-		pass
-	elif velocity.y > 0: # moving down
-		# play down animation
-		pass
-	elif velocity.y < 0: # moving up
-		# play up animation
-		pass
+		$playerAnimation.animation = "side"
+		$playerAnimation.flip_v = false
+		$playerAnimation.flip_h = false
+
+	elif velocity.y < 0: # moving down
+		$playerAnimation.animation = "down"
+		$playerAnimation.flip_v = false
+		$playerAnimation.flip_h = false
+		
+	elif velocity.y > 0: # moving up
+		$playerAnimation.animation = "up"
+		$playerAnimation.flip_v = false
+		$playerAnimation.flip_h = false
 
 # Collision
 func _on_body_entered(body): 
