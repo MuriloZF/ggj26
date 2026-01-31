@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bt8cwoah0jpfv"
-path="res://.godot/imported/pixil-frame-0 (11).png-da40978241f8673509a52ca99ecc4a96.ctex"
+path="res://.godot/imported/mask4.png-0a54ab9e2d1a5c9c7f2cb44b444674f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Masks boss fight/pixil-frame-0 (11).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (11).png-da40978241f8673509a52ca99ecc4a96.ctex"]
+source_file="res://Sprites/Masks boss fight/mask4.png"
+dest_files=["res://.godot/imported/mask4.png-0a54ab9e2d1a5c9c7f2cb44b444674f8.ctex"]
 
 [params]
 

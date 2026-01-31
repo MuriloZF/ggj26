@@ -1,16 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvqti4pjm32d2"]
+[gd_scene load_steps=8 format=3 uid="uid://bvqti4pjm32d2"]
 
 [ext_resource type="Script" uid="uid://dbimlcpsdfmfc" path="res://mask.gd" id="1_oilhy"]
-[ext_resource type="Texture2D" uid="uid://chut8y37lplm4" path="res://Sprites/sr5z7a8265905eaws3.png" id="2_oilhy"]
+[ext_resource type="Texture2D" uid="uid://c4ip0d52n1qly" path="res://Sprites/Masks boss fight/mask1.png" id="2_hgd7e"]
+[ext_resource type="Texture2D" uid="uid://bdec4vlp24w2u" path="res://Sprites/Masks boss fight/mask2.png" id="3_og6u6"]
+[ext_resource type="Texture2D" uid="uid://bkpjimbkwqqfy" path="res://Sprites/Masks boss fight/mask3.png" id="4_ofi71"]
+[ext_resource type="Texture2D" uid="uid://bt8cwoah0jpfv" path="res://Sprites/Masks boss fight/mask4.png" id="5_8rt22"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8yek2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_oilhy")
+"texture": ExtResource("2_hgd7e")
 }],
 "loop": true,
-"name": &"default",
+"name": &"mask1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_og6u6")
+}],
+"loop": true,
+"name": &"mask2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ofi71")
+}],
+"loop": true,
+"name": &"mask3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_8rt22")
+}],
+"loop": true,
+"name": &"mask4",
 "speed": 5.0
 }]
 
@@ -26,6 +53,7 @@ script = ExtResource("1_oilhy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_8yek2")
+animation = &"mask4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -4)
