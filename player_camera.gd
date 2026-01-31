@@ -11,3 +11,7 @@ func _process(_delta):
 func get_target():
 	var nodes = get_tree().get_nodes_in_group("player")
 	target = nodes[0]
+	
+	if(nodes.size() == 0):
+		push_error("Player NOT found")
+		return
