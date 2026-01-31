@@ -15,13 +15,10 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_n7ghd")
+"texture": ExtResource("9_u1c27")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_nvl01")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_ivps1")
+"texture": ExtResource("10_op7ga")
 }],
 "loop": true,
 "name": &"down",
@@ -51,10 +48,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_u1c27")
+"texture": ExtResource("2_n7ghd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_op7ga")
+"texture": ExtResource("3_nvl01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ivps1")
 }],
 "loop": true,
 "name": &"up",
@@ -62,22 +62,26 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sweqy"]
+radius = 47.0
+height = 104.0
 
 [node name="player" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_onrkg")
 
 [node name="playerAnimation" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_hqtel")
-animation = &"down"
-frame_progress = 0.4460674
+animation = &"up"
+frame = 2
+frame_progress = 0.19349793
 
 [node name="playerCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_sweqy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 top_level = true
-zoom = Vector2(0.7, 0.7)
+anchor_mode = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0

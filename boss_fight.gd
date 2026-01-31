@@ -19,7 +19,7 @@ func _on_mask_timer_timeout() -> void:
 	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
 	mask.linear_velocity = velocity.rotated(direction)
 	add_child(mask)
-	
+	mask.maskHit.connect($player._on_mask_mask_hit)
 	
 func _on_fight_timer_timeout() -> void:
 	$maskTimer.stop()

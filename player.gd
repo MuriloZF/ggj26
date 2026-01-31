@@ -1,12 +1,11 @@
 extends CharacterBody2D
 signal collision
 @export var speed = 400
-@export var health = 100
+@export var health = 5
 
 func _ready():
 	pass
-	#hide()
-
+			
 func _physics_process(delta):
 	# Player movement
 	velocity = Vector2.ZERO
@@ -48,20 +47,23 @@ func _physics_process(delta):
 		$playerAnimation.flip_v = false
 		$playerAnimation.flip_h = false
 
-	elif velocity.y < 0: # moving down
-		$playerAnimation.animation = "down"
-		$playerAnimation.flip_v = false
-		$playerAnimation.flip_h = false
-		
-	elif velocity.y > 0: # moving up
+	elif velocity.y < 0: # moving up
 		$playerAnimation.animation = "up"
 		$playerAnimation.flip_v = false
 		$playerAnimation.flip_h = false
-
-# Collision
-func _on_body_entered(body): 
-	collision.emit()
+		
+	elif velocity.y > 0: # moving down
+		$playerAnimation.animation = "down"
+		$playerAnimation.flip_v = false
+		$playerAnimation.flip_h = false
 
 func start(pos):
 	position = pos
+	
+func _on_mask_mask_hit() -> void:
+	if health >= 1:
+		health -= 1
+	else:
+		hide()
+	get_parent().get_node("healthCanvas/heartContainer").takeDamage(health)
 	

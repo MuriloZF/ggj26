@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvqti4pjm32d2"]
 
 [ext_resource type="Script" uid="uid://dbimlcpsdfmfc" path="res://mask.gd" id="1_oilhy"]
-[ext_resource type="Texture2D" uid="uid://cjbw7uo6xug1x" path="res://Sprites/sr5z7a8265905eaws3.png" id="2_oilhy"]
+[ext_resource type="Texture2D" uid="uid://chut8y37lplm4" path="res://Sprites/sr5z7a8265905eaws3.png" id="2_oilhy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8yek2"]
 animations = [{
@@ -14,11 +14,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgd7e"]
-size = Vector2(128, 129)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oilhy"]
+size = Vector2(105, 107)
 
 [node name="mask" type="RigidBody2D" groups=["mask"]]
-collision_mask = 0
+collision_layer = 2
+contact_monitor = true
+max_contacts_reported = 4
 script = ExtResource("1_oilhy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -26,7 +28,9 @@ scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_8yek2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_hgd7e")
+position = Vector2(-1, -4)
+shape = SubResource("RectangleShape2D_oilhy")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(2, -1)
+rect = Rect2(-10, -11, 20, 21)
