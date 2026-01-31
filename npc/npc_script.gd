@@ -3,6 +3,7 @@ var Enemy = preload("res://npc/npc.tscn")
 
 var npcMax = 15
 var enemies = []
+var npc_falas = []
 
 enum npcState {
 		idle,
@@ -32,6 +33,14 @@ func npc_spawn():
 		enemy.position = Vector2(x, y)
 		add_child(enemy)
 		enemies.append(enemy)
+
+func phrase():
+	for i in range(npcMax):
+		for j in range(3):
+			var num = randi() % 20
+			add_child(num)
+			npc_falas.append(num)
+	
 
 func idle_state():
 	pass
