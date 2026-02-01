@@ -3,7 +3,6 @@ signal onPlayerInteraction
 @export var speed = 400
 @export var health = 5
 @export var win = 0
-
 func _ready():
 	pass
 			
@@ -67,3 +66,8 @@ func _on_mask_mask_hit() -> void:
 		hide()
 		set_deferred("player", "true")
 	get_parent().get_node("healthCanvas/heartContainer").takeDamage(health)
+
+func _on_npc_hit() -> void:
+	onPlayerInteraction.emit()
+	if Input.is_action_just_pressed("interact"):
+		get_tree().change_scene_to_file("res://boss_fight.tscn")

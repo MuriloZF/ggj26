@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqe4wx4htat3r"]
+[gd_scene load_steps=9 format=3 uid="uid://cqe4wx4htat3r"]
 
 [ext_resource type="Script" uid="uid://cqjq8leieof6h" path="res://boss_fight.gd" id="1_bhtn8"]
 [ext_resource type="PackedScene" uid="uid://ddu6trkcxoe8v" path="res://player.tscn" id="2_n65jo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dl2rv0f4xe1eu" path="res://heart_container.gd" id="3_nq0y5"]
 [ext_resource type="PackedScene" uid="uid://bvqti4pjm32d2" path="res://mask.tscn" id="5_47mo0"]
 [ext_resource type="PackedScene" uid="uid://itefsw05f2dw" path="res://player_camera.tscn" id="6_y2k5v"]
+[ext_resource type="Texture2D" uid="uid://htuqwu7uj5hl" path="res://Sprites/Backgrounds/backgroundBattle.png" id="7_f0fes"]
 
 [sub_resource type="Curve2D" id="Curve2D_n65jo"]
 _data = {
@@ -17,7 +18,7 @@ point_count = 38
 script = ExtResource("1_bhtn8")
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("2_n65jo")]
-position = Vector2(546, 572)
+position = Vector2(320, 720)
 
 [node name="maskPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_n65jo")
@@ -77,6 +78,13 @@ collision_mask = 0
 offset = Vector2(0, 450)
 process_callback = 0
 limit_bottom = 410
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+
+[node name="backgroundBattle" type="Sprite2D" parent="Parallax2D"]
+z_index = -1
+position = Vector2(400, 280)
+texture = ExtResource("7_f0fes")
 
 [connection signal="timeout" from="maskTimer" to="." method="_on_mask_timer_timeout"]
 [connection signal="timeout" from="fightTimer" to="." method="_on_fight_timer_timeout"]

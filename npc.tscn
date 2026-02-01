@@ -18,15 +18,15 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kh24r"]
-radius = 48.0
-height = 112.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh24r"]
+size = Vector2(72, 96)
 
 [node name="npc" type="RigidBody2D"]
 collision_layer = 2
+collision_mask = 3
 can_sleep = false
+freeze = true
 freeze_mode = 1
-custom_integrator = true
 script = ExtResource("1_ideak")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -37,4 +37,8 @@ frame = 1
 frame_progress = 0.5889251
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_kh24r")
+light_mask = 2
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_kh24r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

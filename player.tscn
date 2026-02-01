@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ddu6trkcxoe8v"]
+[gd_scene load_steps=13 format=3 uid="uid://ddu6trkcxoe8v"]
 
 [ext_resource type="Script" uid="uid://dwgvtke87wrlh" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bqtrbmpjanpno" path="res://Sprites/Sprites do prota/down1.png" id="2_n7ghd"]
@@ -62,19 +62,18 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sweqy"]
-radius = 47.0
-height = 104.0
+radius = 45.0
+height = 96.0
 
-[node name="player" type="CharacterBody2D" unique_id=1600938323]
+[node name="player" type="CharacterBody2D"]
 collision_mask = 2
 script = ExtResource("1_onrkg")
 
-[node name="playerAnimation" type="AnimatedSprite2D" parent="." unique_id=117091531]
+[node name="playerAnimation" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_hqtel")
-animation = &"up"
-frame = 2
-frame_progress = 0.19349793
+animation = &"idle"
 
-[node name="playerCollision" type="CollisionShape2D" parent="." unique_id=1419439050 groups=["player"]]
+[node name="playerCollision" type="CollisionShape2D" parent="." groups=["player"]]
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_sweqy")
