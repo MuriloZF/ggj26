@@ -81,3 +81,8 @@ func _on_npc_hit() -> void:
 	onPlayerInteraction.emit()
 	if Input.is_action_just_pressed("interact"):
 		get_tree().change_scene_to_file("res://boss_fight.tscn")
+		
+
+func shot():
+	if Input.is_action_pressed("interact"):
+		$mask
