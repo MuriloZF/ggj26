@@ -66,6 +66,7 @@ script = ExtResource("1_bhtn8")
 position = Vector2(307, 1526)
 scale = Vector2(2.4787278, 2.6234474)
 speed = 600
+win = 11
 
 [node name="playerCamera" parent="player" unique_id=1005049700 instance=ExtResource("6_y2k5v")]
 position = Vector2(-40, -632)
@@ -86,6 +87,9 @@ rotation = 0.30358177
 
 [node name="maskTimer" type="Timer" parent="." unique_id=620762754]
 wait_time = 0.5
+
+[node name="win" type="Timer" parent="." unique_id=1805811714]
+wait_time = 15.0
 
 [node name="fightTimer" type="Timer" parent="." unique_id=1233482208]
 wait_time = 15.0
@@ -111,5 +115,6 @@ tile_map_data = PackedByteArray("AACzAO3/AAAEAAEAAACzAO7/AAAEAAEAAAC0AO7/AAAEAAE
 tile_set = SubResource("TileSet_fl1h7")
 
 [connection signal="timeout" from="maskTimer" to="." method="_on_mask_timer_timeout"]
+[connection signal="timeout" from="win" to="." method="_on_mask_timer_timeout"]
 [connection signal="timeout" from="fightTimer" to="." method="_on_fight_timer_timeout"]
 [connection signal="maskHit" from="mask" to="player" method="_on_mask_mask_hit"]

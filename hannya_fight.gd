@@ -3,6 +3,8 @@ extends Node
 @onready var player: CharacterBody2D = $player
 
 func _ready():
+	$player.verticalMovement = false
+	$player.hannya = true
 	$fightTimer.start()
 	$maskTimer.start()
 

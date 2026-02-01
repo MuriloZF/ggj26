@@ -4,6 +4,7 @@ signal onPlayerInteraction
 @export var health = 5
 @export var win = 0
 @export var verticalMovement = true
+@export var hannya = false
 
 func _ready():
 	if !verticalMovement:
@@ -38,7 +39,10 @@ func _physics_process(delta):
 	move_and_slide()
 	# Sets animation
 	if velocity.x == 0 && velocity.y == 0: # is standing
-		$playerAnimation.animation = "idle"
+		if !hannya:
+			$playerAnimation.animation = "idle"
+		else:
+			$playerAnimation.animation = "side"
 		$playerAnimation.flip_v = false
 		$playerAnimation.flip_h = true
 		

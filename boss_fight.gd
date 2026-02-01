@@ -6,7 +6,8 @@ enum difficult{
 	easy,
 	medium,
 	hard,
-	very_hard
+	very_hard,
+	ultra_very_hard
 }
 
 var difficultLevel
@@ -19,14 +20,16 @@ func _ready():
 	$maskTimer.start()
 
 func setDifficult():
-	if player.win < 2:
+	if $win.wait_time < 2:
 		difficultLevel = difficult.easy
-	elif player.win <= 4:
+	elif $win.wait_time <= 4:
 		difficultLevel = difficult.medium
-	elif player.win <= 7:
+	elif $win.wait_time <= 7:
 		difficultLevel = difficult.hard
-	else:
+	elif $win.wait_time < 10:
 		difficultLevel = difficult.very_hard
+	else:
+		difficultLevel = difficult.ultra_very_hard
 
 func update_difficult():
 	match difficultLevel:
@@ -42,6 +45,10 @@ func update_difficult():
 		difficult.very_hard:
 			$fightTimer.wait_time = 30
 			$maskTimer.wait_time = 0.2
+		difficult.ultra_very_hard:
+			$fightTimer.wait_time = 30
+			$maskTimer.wait_time = 0.15
+		 
 
 func end_fight():
 	get_tree().call_group("mask", "queue_free")
@@ -61,7 +68,7 @@ func _on_mask_timer_timeout() -> void:
 	
 func _on_fight_timer_timeout() -> void:
 	$maskTimer.stop()
-	player.win += player.win
+	$win.wait_time += 1
 	get_tree().change_scene_to_file("res://main.tscn")
 
 	
