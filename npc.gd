@@ -15,5 +15,9 @@ func _on_body_entered(body):
 	queue_free()
 
 func _on_player_on_player_interaction() -> void:
-	get_tree().change_scene_to_file("res://boss_fight.tscn")
+	$main.battle += 1
+	if $main.battle >= 5:
+		get_tree().change_scene_to_file("res://hannya_fight.tscn")
+	else:
+		get_tree().change_scene_to_file("res://boss_fight.tscn")
 	queue_free()

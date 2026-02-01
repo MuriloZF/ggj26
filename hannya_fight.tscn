@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://8t022n8usp4y"]
+
+[ext_resource type="Script" uid="uid://mrvpsl8niv0j" path="res://hannya_fight.gd" id="1_5inrr"]
+[ext_resource type="PackedScene" uid="uid://ddu6trkcxoe8v" path="res://player.tscn" id="2_ynynw"]
+[ext_resource type="PackedScene" uid="uid://itefsw05f2dw" path="res://player_camera.tscn" id="4_ybxxt"]
+[ext_resource type="Texture2D" uid="uid://htuqwu7uj5hl" path="res://Sprites/Backgrounds/backgroundBattle.png" id="5_boiy7"]
+[ext_resource type="Texture2D" uid="uid://chut8y37lplm4" path="res://Sprites/hannya.png" id="6_coj1t"]
+[ext_resource type="Script" uid="uid://4xr3c2eds45h" path="res://hannya.gd" id="6_ynynw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8bx6"]
+size = Vector2(1008, 1065)
+
+[node name="hannyaFight" type="Node"]
+script = ExtResource("1_5inrr")
+
+[node name="player" parent="." instance=ExtResource("2_ynynw")]
+z_index = 1
+position = Vector2(792, 768)
+scale = Vector2(2.3104246, 2.2261343)
+
+[node name="playerCamera" parent="player" instance=ExtResource("4_ybxxt")]
+position = Vector2(-69.25134, -323.43063)
+scale = Vector2(0.4328209, 0.44920918)
+limit_top = -1075
+limit_right = 4230
+limit_bottom = 1145
+
+[node name="background" type="Parallax2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="background"]
+position = Vector2(2072, 48.000027)
+scale = Vector2(2.2166665, 1.80813)
+texture = ExtResource("5_boiy7")
+metadata/_edit_lock_ = true
+
+[node name="fightTimer" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="hannya" type="RigidBody2D" parent="."]
+position = Vector2(3304, 456)
+script = ExtResource("6_ynynw")
+
+[node name="spriteHannya" type="Sprite2D" parent="hannya"]
+texture = ExtResource("6_coj1t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hannya"]
+light_mask = 2
+position = Vector2(-48, -76.5)
+shape = SubResource("RectangleShape2D_p8bx6")

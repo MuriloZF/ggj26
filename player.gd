@@ -73,15 +73,11 @@ func _on_mask_mask_hit() -> void:
 	health -= 1
 	velocity.y += 5
 	if health <= 0:
-		hide()
-		set_deferred("player", "true")
+		queue_free()
 	$healthCanvas/heartContainer.takeDamage(health)
 
 func _on_npc_hit() -> void:
 	onPlayerInteraction.emit()
-	if Input.is_action_just_pressed("interact"):
-		get_tree().change_scene_to_file("res://boss_fight.tscn")
-		
 
 func shot():
 	if Input.is_action_pressed("interact"):

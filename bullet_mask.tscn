@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk6qqc3beyihq"]
+
+[ext_resource type="Texture2D" uid="uid://bkpjimbkwqqfy" path="res://Sprites/Masks boss fight/mask3.png" id="1_en01x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1ugo"]
+size = Vector2(93, 45)
+
+[node name="bulletMask" type="CharacterBody2D"]
+
+[node name="bulletMaskSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_en01x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -7.5)
+shape = SubResource("RectangleShape2D_b1ugo")
