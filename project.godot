@@ -21,9 +21,10 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=410
+window/size/viewport_width=4096
+window/size/viewport_height=2160
 window/size/mode=3
+window/stretch/mode="canvas_items"
 
 [input]
 

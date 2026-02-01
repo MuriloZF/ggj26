@@ -13,14 +13,16 @@ size = Vector2(88, 40)
 script = ExtResource("1_lti8b")
 
 [node name="playButton" type="Area2D" parent="."]
-metadata/_edit_lock_ = true
+position = Vector2(688, 512)
+scale = Vector2(2, 1.552)
 
 [node name="Label" type="Label" parent="playButton"]
 z_index = 1
-offset_left = 712.0
-offset_top = 344.0
-offset_right = 866.0
-offset_bottom = 432.0
+offset_left = 592.0
+offset_top = 221.64949
+offset_right = 746.0
+offset_bottom = 309.64948
+scale = Vector2(2, 1.552)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "PLAY"
@@ -29,15 +31,17 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="playButton"]
-offset_left = 744.0
-offset_top = 368.0
-offset_right = 832.0
-offset_bottom = 408.0
+offset_left = 656.0
+offset_top = 262.8866
+offset_right = 744.0
+offset_bottom = 302.8866
+scale = Vector2(2, 1.552)
 color = Color(0.9928413, 0.99944586, 0.9757342, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playButton"]
-position = Vector2(788, 388)
+position = Vector2(744, 293.8144)
+scale = Vector2(2, 1.552)
 shape = SubResource("RectangleShape2D_vsb4k")
 
 [node name="mouse" type="Area2D" parent="."]
@@ -51,13 +55,14 @@ offset_left = -32.0
 offset_top = -24.0
 offset_right = 1600.0
 offset_bottom = 880.0
+scale = Vector2(2.5522215, 2.4223132)
 texture = ExtResource("2_mae5d")
 expand_mode = 3
 metadata/_edit_lock_ = true
 
 [node name="logo" type="Sprite2D" parent="."]
-position = Vector2(792.00006, 216)
-scale = Vector2(0.6983471, 0.515534)
+position = Vector2(2128, 472)
+scale = Vector2(2.9936182, 1.624565)
 texture = ExtResource("3_4hy44")
 metadata/_edit_lock_ = true
 

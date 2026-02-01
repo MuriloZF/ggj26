@@ -18,10 +18,11 @@ position = Vector2(1440, 632)
 
 [node name="playerCamera" parent="player" instance=ExtResource("4_1bvp3")]
 position = Vector2(-528, -16)
-zoom = Vector2(1.5, 1.5)
-limit_top = -5
-limit_right = 1915
-limit_bottom = 1225
+zoom = Vector2(3, 3)
+limit_left = -455
+limit_top = -145
+limit_right = 2310
+limit_bottom = 1300
 
 [node name="npc" parent="." instance=ExtResource("2_1bvp3")]
 z_index = 1
@@ -134,8 +135,8 @@ position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="background" type="Parallax2D" parent="."]
-scroll_offset = Vector2(912, 616)
-metadata/_edit_lock_ = true
+scale = Vector2(1.4461719, 1.1749444)
+scroll_offset = Vector2(864, 600)
 
 [node name="Sprite2D" type="Sprite2D" parent="background"]
 z_index = -1

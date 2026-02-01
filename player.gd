@@ -4,8 +4,10 @@ signal onPlayerInteraction
 @export var health = 5
 @export var win = 0
 @export var verticalMovement = true
+
 func _ready():
-	pass
+	if !verticalMovement:
+		speed = 600
 			
 func _physics_process(delta):
 	# Player movement

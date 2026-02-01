@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddu6trkcxoe8v"]
+[gd_scene load_steps=16 format=3 uid="uid://ddu6trkcxoe8v"]
 
 [ext_resource type="Script" uid="uid://dwgvtke87wrlh" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bqtrbmpjanpno" path="res://Sprites/Sprites do prota/down1.png" id="2_n7ghd"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c0sr1fbmkxpol" path="res://Sprites/Sprites do prota/up2.png" id="10_op7ga"]
 [ext_resource type="Script" uid="uid://dl2rv0f4xe1eu" path="res://heart_container.gd" id="11_ivps1"]
 [ext_resource type="Texture2D" uid="uid://be0nmxaop3apg" path="res://Sprites/heart.png" id="12_urp6f"]
+[ext_resource type="AudioStream" uid="uid://bc35bhc7thodb" path="res://MUSICA TOP DOWN.wav" id="13_urp6f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
 animations = [{
@@ -86,8 +87,8 @@ shape = SubResource("CapsuleShape2D_sweqy")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 216.0
+offset_top = -82.0
+offset_right = 507.0
 grow_vertical = 0
 script = ExtResource("11_ivps1")
 
@@ -115,3 +116,8 @@ expand_mode = 3
 layout_mode = 2
 texture = ExtResource("12_urp6f")
 expand_mode = 3
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_urp6f")
+autoplay = true
+playback_type = 1

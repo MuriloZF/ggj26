@@ -8,25 +8,24 @@
 
 [sub_resource type="Curve2D" id="Curve2D_n65jo"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -126.98372, -8, 0, 0, 0, 0, 8, -24, 0, 0, 0, 0, 48.130295, -16, 0, 0, 0, 0, 70.01955, -32, 0, 0, 0, 0, 139.33551, -16, 0, 0, 0, 0, 175.8176, -32, 0, 0, 0, 0, 263.3746, -8, 0, 0, 0, 0, 332.69058, 0, 0, 0, 0, 0, 365.52444, -16, 0, 0, 0, 0, 412.95114, -8, 0, 0, 0, 0, 453.08145, -8, 0, 0, 0, 0, 518.74927, 0, 0, 0, 0, 0, 566.1759, -8, 0, 0, 0, 0, 602.65796, -8, 0, 0, 0, 0, 653.7329, -16, 0, 0, 0, 0, 697.5115, -16, 0, 0, 0, 0, 733.9935, -8, 0, 0, 0, 0, -86.853424, -16, 0, 0, 0, 0, -64.96417, -8)
+"points": PackedVector2Array(0, 0, 0, 0, -604.89905, -296, 0, 0, 0, 0, -528.2866, -272, 0, 0, 0, 0, -462.61893, -272, 0, 0, 0, 0, -375.06192, -272, 0, 0, 0, 0, -287.5049, -272, 0, 0, 0, 0, -214.54073, -272, 0, 0, 0, 0, -97.79805, -272, 0, 0, 0, 0, -13.889252, -272, 0, 0, 0, 0, 121.09447, -248, 0, 0, 0, 0, 267.0228, -240, 0, 0, 0, 0, 383.76547, -248, 0, 0, 0, 0, 416.59937, -232, 0, 0, 0, 0, 496.85995, -248, 0, 0, 0, 0, 613.60266, -256, 0, 0, 0, 0, 671.974, -248, 0, 0, 0, 0, 825.1987, -208, 0, 0, 0, 0, 945.5896, -208, 0, 0, 0, 0, 1040.4431, -216, 0, 0, 0, 0, 1142.5929, -264, 0, 0, 0, 0, 1160.834, -248, 0, 0, 0, 0, 1237.4463, -144, 0, 0, 0, 0, 1175.4268, -48, 0, 0, 0, 0, 1102.4626, -88, 0, 0, 0, 0, 1025.8502, -128, 0, 0, 0, 0, 909.10754, -160, 0, 0, 0, 0, 759.531, -168, 0, 0, 0, 0, 573.4723, -144, 0, 0, 0, 0, 474.9707, -160, 0, 0, 0, 0, 347.28342, -160, 0, 0, 0, 0, 241.48535, -144, 0, 0, 0, 0, 124.742676, -136, 0, 0, 0, 0, 37.18567, -144, 0, 0, 0, 0, -97.79805, -144, 0, 0, 0, 0, -240.07819, -168, 0, 0, 0, 0, -407.89578, -176, 0, 0, 0, 0, -455.32248, -176, 0, 0, 0, 0, -484.50815, -176, 0, 0, 0, 0, -604.89905, -296)
 }
-point_count = 19
+point_count = 38
 
 [node name="bossFight" type="Node"]
 script = ExtResource("1_bhtn8")
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("2_n65jo")]
-position = Vector2(64, 704)
+position = Vector2(424, 1432)
+scale = Vector2(2.4787278, 3.8634453)
 
 [node name="playerCamera" parent="player" instance=ExtResource("6_y2k5v")]
 position = Vector2(-40, -632)
-offset = Vector2(0, 450)
-enabled = false
 process_callback = 0
-limit_left = -200
-limit_top = -215
-limit_right = 1685
-limit_bottom = 860
+limit_left = -1242
+limit_top = -235
+limit_right = 2868
+limit_bottom = 1900
 
 [node name="maskPath" type="Path2D" parent="."]
 position = Vector2(62.45714, 16)
@@ -34,8 +33,8 @@ scale = Vector2(2.192857, 1)
 curve = SubResource("Curve2D_n65jo")
 
 [node name="maskSpawnLocation" type="PathFollow2D" parent="maskPath"]
-position = Vector2(-126.98372, -8)
-rotation = -0.11798232
+position = Vector2(-604.89905, -296)
+rotation = 0.30358174
 
 [node name="maskTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -51,10 +50,12 @@ collision_mask = 0
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 autoscroll = Vector2(10, 0)
+metadata/_edit_lock_ = true
 
 [node name="backgroundBattle" type="Sprite2D" parent="Parallax2D"]
 z_index = -1
-position = Vector2(736, 288)
+position = Vector2(752, 784)
+scale = Vector2(2.1583335, 1.7747968)
 texture = ExtResource("7_f0fes")
 metadata/_edit_lock_ = true
 
