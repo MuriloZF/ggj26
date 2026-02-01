@@ -1,25 +1,72 @@
-[gd_scene load_steps=0 format=3 uid="uid://cjk1n87sq2igu"]
+[gd_scene load_steps=6 format=3 uid="uid://cjk1n87sq2igu"]
 
 [ext_resource type="Script" uid="uid://dtrl1syrxm23i" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://htuqwu7uj5hl" path="res://Sprites/Backgrounds/backgroundBattle.png" id="2_mae5d"]
+[ext_resource type="Texture2D" uid="uid://ds7dvtahi1n4h" path="res://Sprites/logo.png" id="3_4hy44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsb4k"]
-size = Vector2(212, 144)
+size = Vector2(88, 40)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lti8b"]
 
-[node name="menu" type="Node2D" unique_id=1712200405]
+[node name="menu" type="Node2D"]
 script = ExtResource("1_lti8b")
 
-[node name="jogar" type="Area2D" parent="." unique_id=609705094]
+[node name="playButton" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="jogar" unique_id=948214476]
-position = Vector2(551, 293)
+[node name="Label" type="Label" parent="playButton"]
+z_index = 1
+offset_left = 712.0
+offset_top = 344.0
+offset_right = 866.0
+offset_bottom = 432.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="playButton"]
+offset_left = 744.0
+offset_top = 368.0
+offset_right = 832.0
+offset_bottom = 408.0
+color = Color(0.9928413, 0.99944586, 0.9757342, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playButton"]
+position = Vector2(788, 388)
 shape = SubResource("RectangleShape2D_vsb4k")
 
-[node name="mouse" type="Area2D" parent="." unique_id=875788932]
+[node name="mouse" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="mouse" unique_id=855394081]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mouse"]
 shape = SubResource("CircleShape2D_lti8b")
 
-[connection signal="area_entered" from="jogar" to="." method="_on_jogar_area_entered"]
-[connection signal="area_exited" from="jogar" to="." method="_on_jogar_area_exited"]
+[node name="menuBackground" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -32.0
+offset_top = -24.0
+offset_right = 1600.0
+offset_bottom = 880.0
+texture = ExtResource("2_mae5d")
+expand_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="logo" type="Sprite2D" parent="."]
+position = Vector2(792.00006, 216)
+scale = Vector2(0.6983471, 0.515534)
+texture = ExtResource("3_4hy44")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+limit_left = -20
+limit_top = -10
+limit_right = 660
+limit_bottom = 385
+
+[connection signal="area_entered" from="playButton" to="." method="_on_jogar_area_entered"]
+[connection signal="area_exited" from="playButton" to="." method="_on_jogar_area_exited"]
