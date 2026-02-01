@@ -3,6 +3,7 @@ signal onPlayerInteraction
 @export var speed = 400
 @export var health = 5
 @export var win = 0
+@export var verticalMovement = true
 func _ready():
 	pass
 			
@@ -13,10 +14,12 @@ func _physics_process(delta):
 		velocity.x += 1
 	if Input.is_action_pressed("left"):
 		velocity.x -= 1
-	if Input.is_action_pressed("up"):
-		velocity.y -= 1
-	if Input.is_action_pressed("down"):
-		velocity.y += 1
+	
+	if verticalMovement:
+		if Input.is_action_pressed("up"):
+			velocity.y -= 1
+		if Input.is_action_pressed("down"):
+			velocity.y += 1
 	
 	# Normalize the speed + animation
 	if velocity.length() > 0:

@@ -12,6 +12,7 @@ enum difficult{
 var difficultLevel
 
 func _ready():
+	$player.verticalMovement = false
 	setDifficult()
 	update_difficult()
 	$fightTimer.start()

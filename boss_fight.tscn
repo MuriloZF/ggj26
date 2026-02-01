@@ -16,7 +16,17 @@ point_count = 19
 script = ExtResource("1_bhtn8")
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("2_n65jo")]
-position = Vector2(40, 632)
+position = Vector2(64, 704)
+
+[node name="playerCamera" parent="player" instance=ExtResource("6_y2k5v")]
+position = Vector2(-40, -632)
+offset = Vector2(0, 450)
+enabled = false
+process_callback = 0
+limit_left = -200
+limit_top = -215
+limit_right = 1685
+limit_bottom = 860
 
 [node name="maskPath" type="Path2D" parent="."]
 position = Vector2(62.45714, 16)
@@ -38,14 +48,6 @@ autostart = true
 [node name="mask" parent="." instance=ExtResource("5_47mo0")]
 position = Vector2(-8, 0)
 collision_mask = 0
-
-[node name="playerCamera" parent="." instance=ExtResource("6_y2k5v")]
-offset = Vector2(0, 450)
-process_callback = 0
-limit_left = -200
-limit_top = -215
-limit_right = 1685
-limit_bottom = 860
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 autoscroll = Vector2(10, 0)
