@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddu6trkcxoe8v"]
+[gd_scene load_steps=15 format=3 uid="uid://ddu6trkcxoe8v"]
 
 [ext_resource type="Script" uid="uid://dwgvtke87wrlh" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bqtrbmpjanpno" path="res://Sprites/Sprites do prota/down1.png" id="2_n7ghd"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://yb01mkihed4c" path="res://Sprites/Sprites do prota/side3.png" id="8_606se"]
 [ext_resource type="Texture2D" uid="uid://b030ovmkjq2tw" path="res://Sprites/Sprites do prota/up1.png" id="9_u1c27"]
 [ext_resource type="Texture2D" uid="uid://c0sr1fbmkxpol" path="res://Sprites/Sprites do prota/up2.png" id="10_op7ga"]
+[ext_resource type="Script" uid="uid://dl2rv0f4xe1eu" path="res://heart_container.gd" id="11_ivps1"]
+[ext_resource type="Texture2D" uid="uid://be0nmxaop3apg" path="res://Sprites/heart.png" id="12_urp6f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
 animations = [{
@@ -77,3 +79,39 @@ animation = &"idle"
 [node name="playerCollision" type="CollisionShape2D" parent="." groups=["player"]]
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_sweqy")
+
+[node name="healthCanvas" type="CanvasLayer" parent="."]
+
+[node name="heartContainer" type="HBoxContainer" parent="healthCanvas"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 216.0
+grow_vertical = 0
+script = ExtResource("11_ivps1")
+
+[node name="heart1" type="TextureRect" parent="healthCanvas/heartContainer"]
+layout_mode = 2
+texture = ExtResource("12_urp6f")
+expand_mode = 3
+
+[node name="heart2" type="TextureRect" parent="healthCanvas/heartContainer"]
+layout_mode = 2
+texture = ExtResource("12_urp6f")
+expand_mode = 3
+
+[node name="heart3" type="TextureRect" parent="healthCanvas/heartContainer"]
+layout_mode = 2
+texture = ExtResource("12_urp6f")
+expand_mode = 3
+
+[node name="heart4" type="TextureRect" parent="healthCanvas/heartContainer"]
+layout_mode = 2
+texture = ExtResource("12_urp6f")
+expand_mode = 3
+
+[node name="heart5" type="TextureRect" parent="healthCanvas/heartContainer"]
+layout_mode = 2
+texture = ExtResource("12_urp6f")
+expand_mode = 3

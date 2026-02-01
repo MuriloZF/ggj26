@@ -65,7 +65,7 @@ func _on_mask_mask_hit() -> void:
 	if health <= 0:
 		hide()
 		set_deferred("player", "true")
-	get_parent().get_node("healthCanvas/heartContainer").takeDamage(health)
+	$healthCanvas/heartContainer.takeDamage(health)
 
 func _on_npc_hit() -> void:
 	onPlayerInteraction.emit()
