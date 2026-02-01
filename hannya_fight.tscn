@@ -8,40 +8,45 @@
 [ext_resource type="Texture2D" uid="uid://chut8y37lplm4" path="res://Sprites/hannya.png" id="6_coj1t"]
 
 [sub_resource type="Curve2D" id="Curve2D_f57dq"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 96, -320, 0, 0, 0, 0, 112, -240, 0, 0, 0, 0, 160, -208, 0, 0, 0, 0, 200, -168, 0, 0, 0, 0, 248, -128, 0, 0, 0, 0, 320, -88, 0, 0, 0, 0, 344, -88, 0, 0, 0, 0, 408, -80, 0, 0, 0, 0, 432, -88, 0, 0, 0, 0, 520, -88, 0, 0, 0, 0, 560, -120, 0, 0, 0, 0, 496, -104, 0, 0, 0, 0, 480, -96, 0, 0, 0, 0, 576, -112, 0, 0, 0, 0, 592, -168, 0, 0, 0, 0, 624, -232, 0, 0, 0, 0, 624, -256, 0, 0, 0, 0, 608, -288, 0, 0, 0, 0, 96, -320)
-}
-point_count = 19
 
 [node name="hannyaFight" type="Node"]
 script = ExtResource("1_5inrr")
 
 [node name="player" parent="." instance=ExtResource("2_ynynw")]
-position = Vector2(312, 208)
+z_index = 1
+position = Vector2(792, 768)
+scale = Vector2(2.3104246, 2.2261343)
+
+[node name="playerCamera" parent="player" instance=ExtResource("4_ybxxt")]
+position = Vector2(-554.01074, -327.0243)
+scale = Vector2(0.4328209, 0.44920918)
+limit_top = -1075
+limit_right = 4230
+limit_bottom = 1145
 
 [node name="mask" parent="." instance=ExtResource("3_p8bx6")]
-position = Vector2(40, 48)
-
-[node name="playerCamera" parent="mask" instance=ExtResource("4_ybxxt")]
+position = Vector2(-488, 40)
 
 [node name="background" type="Parallax2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="background"]
-position = Vector2(388.00006, -32)
-scale = Vector2(0.8208333, 0.7479675)
+position = Vector2(2072, 48.000027)
+scale = Vector2(2.2166665, 1.80813)
 texture = ExtResource("5_boiy7")
+metadata/_edit_lock_ = true
 
 [node name="Hannya" type="Sprite2D" parent="."]
-position = Vector2(384, -272)
-scale = Vector2(0.5, 0.5)
+position = Vector2(3488, 384)
+scale = Vector2(1.1118422, 1.125)
 texture = ExtResource("6_coj1t")
 
 [node name="maskPath" type="Path2D" parent="."]
+position = Vector2(1352, -320)
 curve = SubResource("Curve2D_f57dq")
 
 [node name="maskSpawn" type="PathFollow2D" parent="maskPath"]
-position = Vector2(96, -320)
-rotation = 1.3734008
+position = Vector2(2208, -248)
+rotation = -3.1142023
 
 [node name="fightTimer" type="Timer" parent="."]
 wait_time = 15.0
