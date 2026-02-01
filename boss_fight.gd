@@ -61,4 +61,6 @@ func _on_mask_timer_timeout() -> void:
 func _on_fight_timer_timeout() -> void:
 	$maskTimer.stop()
 	player.win += player.win
-	pass # finish battle
+	get_tree().change_scene_to_file("res://main.tscn")
+
+	
