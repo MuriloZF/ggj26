@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnsfcisv57if6"]
+[gd_scene format=3 uid="uid://btp714h6qaw2v"]
 
 [ext_resource type="Script" uid="uid://mrvpsl8niv0j" path="res://hannya_fight.gd" id="1_5inrr"]
 [ext_resource type="PackedScene" uid="uid://ddu6trkcxoe8v" path="res://player.tscn" id="2_ynynw"]
@@ -13,55 +13,60 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8bx6"]
 size = Vector2(1008, 1065)
 
-[node name="hannyaFight" type="Node"]
+[node name="hannyaFight" type="Node" unique_id=219986756]
 script = ExtResource("1_5inrr")
 
-[node name="player" parent="." instance=ExtResource("2_ynynw")]
+[node name="player" parent="." unique_id=510631537 instance=ExtResource("2_ynynw")]
 z_index = 1
 position = Vector2(792, 768)
 scale = Vector2(2.3104246, 2.2261343)
 
-[node name="playerCamera" parent="player" instance=ExtResource("4_ybxxt")]
+[node name="playerCamera" parent="player" unique_id=795138644 instance=ExtResource("4_ybxxt")]
 position = Vector2(-69.25134, -323.43063)
 scale = Vector2(0.4328209, 0.44920918)
 limit_top = -1075
 limit_right = 4230
 limit_bottom = 1145
 
-[node name="mask" parent="." instance=ExtResource("3_p8bx6")]
+[node name="mask" parent="." unique_id=2060198652 instance=ExtResource("3_p8bx6")]
 position = Vector2(-1728, -616)
 
-[node name="background" type="Parallax2D" parent="."]
+[node name="background" type="Parallax2D" parent="." unique_id=888829538]
 
-[node name="Sprite2D" type="Sprite2D" parent="background"]
+[node name="Sprite2D" type="Sprite2D" parent="background" unique_id=830210229]
 position = Vector2(2072, 48.000027)
 scale = Vector2(2.2166665, 1.80813)
 texture = ExtResource("5_boiy7")
 metadata/_edit_lock_ = true
 
-[node name="maskPath" type="Path2D" parent="."]
+[node name="maskPath" type="Path2D" parent="." unique_id=700059360]
 position = Vector2(1352, -320)
 curve = SubResource("Curve2D_f57dq")
 
-[node name="maskSpawn" type="PathFollow2D" parent="maskPath"]
+[node name="maskSpawn" type="PathFollow2D" parent="maskPath" unique_id=16004619]
 position = Vector2(2208, -248)
 rotation = -3.1142023
 
-[node name="fightTimer" type="Timer" parent="."]
+[node name="fightTimer" type="Timer" parent="." unique_id=2055169987]
 wait_time = 15.0
 
-[node name="maskTimer" type="Timer" parent="."]
+[node name="maskTimer" type="Timer" parent="." unique_id=425210769]
 wait_time = 0.1
 
-[node name="hannya" type="RigidBody2D" parent="."]
-position = Vector2(3304, 456)
+[node name="hannya" type="RigidBody2D" parent="." unique_id=236915770]
+position = Vector2(3387, 316.99994)
+rotation = 0.37175512
+can_sleep = false
+angular_velocity = 0.5235988
+constant_torque = 5.0
 script = ExtResource("6_ynynw")
 
-[node name="spriteHannya" type="Sprite2D" parent="hannya"]
+[node name="spriteHannya" type="Sprite2D" parent="hannya" unique_id=2146539166]
 texture = ExtResource("6_coj1t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hannya"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hannya" unique_id=1319702841]
 position = Vector2(-48, -76.5)
 shape = SubResource("RectangleShape2D_p8bx6")
 
 [connection signal="maskHit" from="mask" to="hannya" method="_on_mask_mask_hit"]
+[connection signal="body_entered" from="hannya" to="." method="_on_hannya_body_entered"]

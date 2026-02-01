@@ -1,6 +1,7 @@
 extends Node
 @export var maskScene : PackedScene = preload("res://mask.tscn")
 @onready var player: CharacterBody2D = $player
+@onready var hannya: RigidBody2D = $hannya
 
 func _ready():
 	$player.verticalMovement = false
@@ -28,5 +29,4 @@ func _on_fight_timer_timeout() -> void:
 	$maskTimer.stop()
 	player.win += player.win
 	get_tree().change_scene_to_file("res://main.tscn")
-
 	
