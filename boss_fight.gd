@@ -19,7 +19,7 @@ func _ready():
 	$maskTimer.start()
 
 func setDifficult():
-	if player.win == 2:
+	if player.win < 2:
 		difficultLevel = difficult.easy
 	elif player.win <= 4:
 		difficultLevel = difficult.medium

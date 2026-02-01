@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqe4wx4htat3r"]
+[gd_scene format=4 uid="uid://cqe4wx4htat3r"]
 
 [ext_resource type="Script" uid="uid://cqjq8leieof6h" path="res://boss_fight.gd" id="1_bhtn8"]
 [ext_resource type="PackedScene" uid="uid://ddu6trkcxoe8v" path="res://player.tscn" id="2_n65jo"]
 [ext_resource type="PackedScene" uid="uid://bvqti4pjm32d2" path="res://mask.tscn" id="5_47mo0"]
+[ext_resource type="Texture2D" uid="uid://bn0xjymquboep" path="res://Terrain (16 x 16).png" id="6_f0fes"]
 [ext_resource type="PackedScene" uid="uid://itefsw05f2dw" path="res://player_camera.tscn" id="6_y2k5v"]
 [ext_resource type="Texture2D" uid="uid://htuqwu7uj5hl" path="res://Sprites/Backgrounds/backgroundBattle.png" id="7_f0fes"]
 
@@ -12,14 +13,61 @@ _data = {
 }
 point_count = 38
 
-[node name="bossFight" type="Node"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_htj63"]
+texture = ExtResource("6_f0fes")
+3:1/0 = 0
+4:1/0 = 0
+4:1/0/z_index = -2
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+11:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+11:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+15:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+11:4/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+11:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+4:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fl1h7"]
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_htj63")
+
+[node name="bossFight" type="Node" unique_id=131281641]
 script = ExtResource("1_bhtn8")
 
-[node name="player" parent="." groups=["player"] instance=ExtResource("2_n65jo")]
-position = Vector2(424, 1432)
-scale = Vector2(2.4787278, 3.8634453)
+[node name="player" parent="." unique_id=616044081 groups=["player"] instance=ExtResource("2_n65jo")]
+position = Vector2(307, 1526)
+scale = Vector2(2.4787278, 2.6234474)
+speed = 600
 
-[node name="playerCamera" parent="player" instance=ExtResource("6_y2k5v")]
+[node name="playerCamera" parent="player" unique_id=1005049700 instance=ExtResource("6_y2k5v")]
 position = Vector2(-40, -632)
 process_callback = 0
 limit_left = -1242
@@ -27,37 +75,40 @@ limit_top = -235
 limit_right = 2868
 limit_bottom = 1900
 
-[node name="maskPath" type="Path2D" parent="."]
+[node name="maskPath" type="Path2D" parent="." unique_id=253915724]
 position = Vector2(62.45714, 16)
 scale = Vector2(2.192857, 1)
 curve = SubResource("Curve2D_n65jo")
 
-[node name="maskSpawnLocation" type="PathFollow2D" parent="maskPath"]
+[node name="maskSpawnLocation" type="PathFollow2D" parent="maskPath" unique_id=1449658346]
 position = Vector2(-604.89905, -296)
-rotation = 0.30358174
+rotation = 0.30358177
 
-[node name="maskTimer" type="Timer" parent="."]
+[node name="maskTimer" type="Timer" parent="." unique_id=620762754]
 wait_time = 0.5
 
-[node name="fightTimer" type="Timer" parent="."]
+[node name="fightTimer" type="Timer" parent="." unique_id=1233482208]
 wait_time = 15.0
 one_shot = true
 autostart = true
 
-[node name="mask" parent="." instance=ExtResource("5_47mo0")]
+[node name="mask" parent="." unique_id=1805534388 instance=ExtResource("5_47mo0")]
 position = Vector2(-8, 0)
 collision_mask = 0
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=317641691]
 autoscroll = Vector2(10, 0)
-metadata/_edit_lock_ = true
 
-[node name="backgroundBattle" type="Sprite2D" parent="Parallax2D"]
+[node name="backgroundBattle" type="Sprite2D" parent="Parallax2D" unique_id=233225208]
 z_index = -1
-position = Vector2(752, 784)
-scale = Vector2(2.1583335, 1.7747968)
+position = Vector2(773.9998, 802.75)
+scale = Vector2(2.18125, 1.8052846)
 texture = ExtResource("7_f0fes")
-metadata/_edit_lock_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1656377552]
+light_mask = 2
+tile_map_data = PackedByteArray("AACzAO3/AAAEAAEAAACzAO7/AAAEAAEAAAC0AO7/AAAEAAEAAAC0AO//AAAEAAEAAAC0APD/AAAEAAEAAAC0APH/AAAEAAEAAAC0APL/AAAEAAEAAACzAO//AAAEAAEAAACzAPD/AAAEAAEAAAC0APP/AAAEAAEAAAC0APT/AAAEAAEAAAC0APX/AAAEAAEAAAC0APb/AAAEAAEAAAC0APf/AAAEAAEAAACzAPP/AAAEAAEAAACzAPL/AAAEAAEAAACzAPH/AAAEAAEAAACzAPT/AAAEAAEAAACzAPX/AAAEAAEAAAC0APj/AAAEAAEAAAC0APn/AAAEAAEAAAC0APr/AAAEAAEAAACzAPj/AAAEAAEAAACzAPf/AAAEAAEAAACzAPb/AAAEAAEAAAC0APv/AAAEAAEAAAC0APz/AAAEAAEAAAC0AP3/AAAEAAEAAACzAPr/AAAEAAEAAACzAPn/AAAEAAEAAACzAPv/AAAEAAEAAACzAPz/AAAEAAEAAACzAP3/AAAEAAEAAACzAP7/AAAEAAEAAACzAP//AAAEAAEAAAC0AP//AAAEAAEAAAC0AAAAAAAEAAEAAAC0AAEAAAAEAAEAAAC0AAIAAAAEAAEAAAC0AAMAAAAEAAEAAACzAAMAAAAEAAEAAACzAAIAAAAEAAEAAACzAAEAAAAEAAEAAACzAAAAAAAEAAEAAACyAAAAAAAEAAEAAACzAAQAAAAEAAEAAACzAAUAAAAEAAEAAAC0AAYAAAAEAAEAAAC0AAcAAAAEAAEAAAC0AAgAAAAEAAEAAAC0AAkAAAAEAAEAAACzAAgAAAAEAAEAAACzAAcAAAAEAAEAAACzAAYAAAAEAAEAAACzAAkAAAAEAAEAAAC0AAoAAAAEAAEAAAC0AAsAAAAEAAEAAAC0AAwAAAAEAAEAAACzAAsAAAAEAAEAAACzAAoAAAAEAAEAAACzAE4AAAAEAAEAAAC0AE8AAAAEAAEAAAC0AFAAAAAEAAEAAACzAFAAAAAEAAEAAACzAE8AAAAEAAEAAACzAFEAAAAEAAEAAAC0AFEAAAAEAAEAAAC0AFIAAAAEAAEAAAC0AFMAAAAEAAEAAACzAFMAAAAEAAEAAACzAFIAAAAEAAEAAACzAFQAAAAEAAEAAACzAFUAAAAEAAEAAACzAFYAAAAEAAEAAACzAFcAAAAEAAEAAACzAFgAAAAEAAEAAACzAFkAAAAEAAEAAACzAFoAAAAEAAEAAACzAFsAAAAEAAEAAACzAFwAAAAEAAEAAACzAF0AAAAEAAEAAACzAF4AAAAEAAEAAACzAF8AAAAEAAEAAACzAGAAAAAEAAEAAACzAGEAAAAEAAEAAACzAGIAAAAEAAEAAACzAGMAAAAEAAEAAACzAGQAAAAEAAEAAACzAGUAAAAEAAEAAACzAGYAAAAEAAEAAACzAGcAAAAEAAEAAACzAGgAAAAEAAEAAACzAGkAAAAEAAEAAACzAGoAAAAEAAEAAACzAGsAAAAEAAEAAACzAGwAAAAEAAEAAACzAG0AAAAEAAEAAAC0AG4AAAAEAAEAAAC0AG8AAAAEAAEAAAC0AHAAAAAEAAEAAACzAG8AAAAEAAEAAACzAG4AAAAEAAEAAACzAHAAAAAEAAEAAAC0AHEAAAAEAAEAAAC0AHIAAAAEAAEAAAC0AHMAAAAEAAEAAAC0AHQAAAAEAAEAAAC0AHUAAAAEAAEAAACzAHUAAAAEAAEAAACzAHQAAAAEAAEAAACzAHMAAAAEAAEAAACzAHIAAAAEAAEAAACzAHEAAAAEAAEAAACzAHYAAAAEAAEAAACyAHYAAAAEAAEAAACxAHYAAAAEAAEAAACyAHcAAAAEAAEAAACzAHcAAAAEAAEAAAC0AHcAAAAEAAEAAAC0AHYAAAAEAAEAAACs/0oAAAAEAAEAAACs/0sAAAAEAAEAAACs/0wAAAAEAAEAAACs/00AAAAEAAEAAACs/04AAAAEAAEAAACs/08AAAAEAAEAAACs/1AAAAAEAAEAAACs/1EAAAAEAAEAAACs/1IAAAAEAAEAAACs/1MAAAAEAAEAAACs/1QAAAAEAAEAAACs/1UAAAAEAAEAAACs/1YAAAAEAAEAAACs/1cAAAAEAAEAAACs/1gAAAAEAAEAAACs/1kAAAAEAAEAAACs/1oAAAAEAAEAAACs/1sAAAAEAAEAAACs/1wAAAAEAAEAAACs/10AAAAEAAEAAACs/14AAAAEAAEAAACs/18AAAAEAAEAAACs/2AAAAAEAAEAAACs/2EAAAAEAAEAAACs/2IAAAAEAAEAAACs/2MAAAAEAAEAAACs/2QAAAAEAAEAAACs/2UAAAAEAAEAAACs/2YAAAAEAAEAAACs/2cAAAAEAAEAAACs/2gAAAAEAAEAAACs/2kAAAAEAAEAAACs/2oAAAAEAAEAAACr/2oAAAAEAAEAAACr/2sAAAAEAAEAAACr/2wAAAAEAAEAAACr/20AAAAEAAEAAACr/24AAAAEAAEAAACr/28AAAAEAAEAAACs/28AAAAEAAEAAACs/24AAAAEAAEAAACs/20AAAAEAAEAAACs/2wAAAAEAAEAAACs/2sAAAAEAAEAAACs/3AAAAAEAAEAAACs/3EAAAAEAAEAAACs/3IAAAAEAAEAAACs/3MAAAAEAAEAAACs/3QAAAAEAAEAAACt/3UAAAAEAAEAAACt/3YAAAAEAAEAAACs/3UAAAAEAAEAAACs/3YAAAAEAAEAAACs/3cAAAAEAAEAAACs/3gAAAAEAAEAAACt/3gAAAAEAAEAAACu/3gAAAAEAAEAAACt/3cAAAAEAAEAAACr/3cAAAAEAAEAAACr/3YAAAAEAAEAAAA=")
+tile_set = SubResource("TileSet_fl1h7")
 
 [connection signal="timeout" from="maskTimer" to="." method="_on_mask_timer_timeout"]
 [connection signal="timeout" from="fightTimer" to="." method="_on_fight_timer_timeout"]
