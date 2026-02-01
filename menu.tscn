@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjk1n87sq2igu"]
+[gd_scene load_steps=7 format=3 uid="uid://cjk1n87sq2igu"]
 
 [ext_resource type="Script" uid="uid://dtrl1syrxm23i" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://bl0facn6edw1r" path="res://Sprites/play.png" id="2_4hy44"]
 [ext_resource type="Texture2D" uid="uid://htuqwu7uj5hl" path="res://Sprites/Backgrounds/backgroundBattle.png" id="2_mae5d"]
 [ext_resource type="Texture2D" uid="uid://ds7dvtahi1n4h" path="res://Sprites/logo.png" id="3_4hy44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsb4k"]
-size = Vector2(88, 40)
+size = Vector2(64, 59.783115)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lti8b"]
 
@@ -16,33 +17,16 @@ script = ExtResource("1_lti8b")
 position = Vector2(688, 512)
 scale = Vector2(2, 1.552)
 
-[node name="Label" type="Label" parent="playButton"]
-z_index = 1
-offset_left = 592.0
-offset_top = 221.64949
-offset_right = 746.0
-offset_bottom = 309.64948
-scale = Vector2(2, 1.552)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "PLAY"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" type="ColorRect" parent="playButton"]
-offset_left = 656.0
-offset_top = 262.8866
-offset_right = 744.0
-offset_bottom = 302.8866
-scale = Vector2(2, 1.552)
-color = Color(0.9928413, 0.99944586, 0.9757342, 1)
-metadata/_edit_use_anchors_ = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playButton"]
-position = Vector2(744, 293.8144)
+z_index = 1
+position = Vector2(748, 288.65985)
 scale = Vector2(2, 1.552)
 shape = SubResource("RectangleShape2D_vsb4k")
+
+[node name="Sprite2D" type="Sprite2D" parent="playButton"]
+position = Vector2(748, 268.04123)
+scale = Vector2(1.1696696, 1.3659794)
+texture = ExtResource("2_4hy44")
 
 [node name="mouse" type="Area2D" parent="."]
 

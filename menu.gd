@@ -7,6 +7,8 @@ func _process(delta: float) -> void:
 	$mouse.position = mouse_pos	
 	if dentro_da_area and Input.is_action_just_pressed("select"):
 		get_tree().change_scene_to_file("res://main.tscn")
+	if Input.is_action_just_pressed("start"):
+		get_tree().change_scene_to_file("res://main.tscn")
 
 func _on_jogar_area_entered(area: Area2D) -> void:
 	dentro_da_area = true

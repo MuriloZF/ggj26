@@ -1,7 +1,10 @@
-[gd_scene format=3 uid="uid://cmj24d63bfg5l"]
+[gd_scene load_steps=2 format=3 uid="uid://cmj24d63bfg5l"]
+
+[ext_resource type="Texture2D" uid="uid://55hhkk3x3yyb" path="res://Sprites/credits.jpeg" id="1_nm7lk"]
 
 [node name="Credits" type="Node"]
 
 [node name="credits" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 4080.0
+offset_bottom = 2128.0
+texture = ExtResource("1_nm7lk")

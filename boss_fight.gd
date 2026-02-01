@@ -12,6 +12,24 @@ enum difficult{
 
 var difficultLevel
 
+func update_difficult():
+	match difficultLevel:
+		difficult.easy:
+			$fightTimer.wait_time = 15
+			$maskTimer.wait_time = 0.5
+		difficult.medium:
+			$fightTimer.wait_time = 20
+			$maskTimer.wait_time = 0.4
+		difficult.hard:
+			$fightTimer.wait_time = 25
+			$maskTimer.wait_time = 0.3
+		difficult.very_hard:
+			$fightTimer.wait_time = 30
+			$maskTimer.wait_time = 0.2
+		difficult.ultra_very_hard:
+			$fightTimer.wait_time = 30
+			$maskTimer.wait_time = 0.15
+
 func _ready():
 	if GameState.hannyaFight:
 		$hannya.show()
@@ -32,55 +50,20 @@ func setDifficult():
 	elif GameState.wins >= 4:
 		difficultLevel = difficult.very_hard
 	else:
-		difficultLevel = difficult.ultra_very_hard
-
-func update_difficult():
-	match difficultLevel:
-		difficult.easy:
-			$fightTimer.wait_time = 15
-			$maskTimer.wait_time = 0.5
-		difficult.medium:
-			$fightTimer.wait_time = 20
-			$maskTimer.wait_time = 0.4
-		difficult.hard:
-			$fightTimer.wait_time = 25
-			$maskTimer.wait_time = 0.3
-		difficult.very_hard:
-			$fightTimer.wait_time = 30
-			$maskTimer.wait_time = 0.2
-		difficult.ultra_very_hard:
-			$fightTimer.wait_time = 30
-			$maskTimer.wait_time = 0.15
-		 
+		difficultLevel = difficult.ultra_very_hard 
 
 func end_fight():
 	get_tree().call_group("mask", "queue_free")
 
-func _on_mask_timer_timeoutNormal() -> void:
-	if !GameState.hannyaFight:
-		var mask = maskScene.instantiate()
-		var spawnLocation = $maskPath/maskSpawnLocation
-		if $player.position.x > 0:
-			spawnLocation.progress_ratio = $player.position.x
-		else:
-			spawnLocation.progress_ratio = randf()
-		mask.position = spawnLocation.position
-		var direction = spawnLocation.rotation + PI / 2
-		direction += randf_range(-PI / 4, PI / 4)
-		mask.rotation = direction
-		var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
-		mask.linear_velocity = velocity.rotated(direction)
-		add_child(mask)
-		mask.maskHit.connect($player._on_mask_mask_hit)
-	else:
-		var mask = maskScene.instantiate()
-		var spawn_y = $maskPath/maskSpawnLocation.global_position.y
-		mask.global_position = Vector2($player.global_position.x, spawn_y)
-		var direction = Vector2.DOWN.rotated(randf_range(-PI / 4, PI / 4))
-		mask.rotation = direction.angle()
-		mask.linear_velocity = direction * randf_range(150.0, 250.0)
-		add_child(mask)
-		mask.maskHit.connect(Callable($player, "_on_mask_mask_hit"))
+func _on_mask_timer_timeout() -> void:
+	var mask = maskScene.instantiate()
+	var spawn_y = $maskPath/maskSpawnLocation.global_position.y
+	mask.global_position = Vector2($player.global_position.x, spawn_y)
+	var direction = Vector2.DOWN.rotated(randf_range(-PI / 4, PI / 4))
+	mask.rotation = direction.angle()
+	mask.linear_velocity = direction * randf_range(150.0, 250.0)
+	add_child(mask)
+	mask.maskHit.connect(Callable($player, "_on_mask_mask_hit"))
 
 	
 func _on_fight_timer_timeout() -> void:

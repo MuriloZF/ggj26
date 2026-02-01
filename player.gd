@@ -85,4 +85,5 @@ func _on_hannya_hit_hannya() -> void:
 	velocity.y += 10
 	if health <= 0:
 		queue_free()
+	$hit.play()
 	$healthCanvas/heartContainer.takeDamage(health)
