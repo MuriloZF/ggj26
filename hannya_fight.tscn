@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene format=3 uid="uid://cnsfcisv57if6"]
-=======
 [gd_scene load_steps=10 format=3 uid="uid://cnsfcisv57if6"]
->>>>>>> 0afa2a7e9b3cc55f98ab30eb4dff8ca57946ef73
 
 [ext_resource type="Script" uid="uid://mrvpsl8niv0j" path="res://hannya_fight.gd" id="1_5inrr"]
 [ext_resource type="PackedScene" uid="uid://ddu6trkcxoe8v" path="res://player.tscn" id="2_ynynw"]
