@@ -65,7 +65,7 @@ func start(pos):
 	
 func _on_mask_mask_hit() -> void:
 	health -= 1
-	velocity.y += 2
+	velocity.y += 5
 	if health <= 0:
 		hide()
 		set_deferred("player", "true")
