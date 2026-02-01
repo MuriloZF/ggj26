@@ -1,4 +1,5 @@
 extends RigidBody2D
+signal hitHannya
 @export var health = 15
 @onready var hannya: RigidBody2D = $"."
 
@@ -24,6 +25,12 @@ func _on_mask_mask_hit() -> void:
 	if health <= 0:
 		hide()
 		set_deferred("hannya", "true")
+		
+func _on_body_entered(body):
+	if body.on_group("mask"):
+		_on_mask_mask_hit()
+	else:
+		hitHannya.emit()
 		
 enum difficult{
 	easy,

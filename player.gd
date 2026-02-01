@@ -71,7 +71,7 @@ func start(pos):
 	
 func _on_mask_mask_hit() -> void:
 	health -= 1
-	velocity.y += 5
+	velocity.y += 10
 	if health <= 0:
 		queue_free()
 	$healthCanvas/heartContainer.takeDamage(health)
@@ -79,6 +79,10 @@ func _on_mask_mask_hit() -> void:
 func _on_npc_hit() -> void:
 	onPlayerInteraction.emit()
 
-func shot():
-	if Input.is_action_pressed("interact"):
-		$mask
+
+func _on_hannya_hit_hannya() -> void:
+	health -= 1
+	velocity.y += 10
+	if health <= 0:
+		queue_free()
+	$healthCanvas/heartContainer.takeDamage(health)
