@@ -118,7 +118,7 @@ tile_set = SubResource("TileSet_fl1h7")
 
 [node name="hannya" type="RigidBody2D" parent="."]
 visible = false
-position = Vector2(3304, 456)
+position = Vector2(2656, -800)
 freeze = true
 script = ExtResource("7_htj63")
 
@@ -128,7 +128,7 @@ texture = ExtResource("8_fl1h7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hannya"]
 light_mask = 2
-position = Vector2(-1112, -88)
+position = Vector2(-1048, -88)
 shape = SubResource("RectangleShape2D_5lasl")
 
 [connection signal="timeout" from="maskTimer" to="." method="_on_mask_timer_timeout"]
