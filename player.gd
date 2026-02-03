@@ -71,9 +71,10 @@ func start(pos):
 	
 func _on_mask_mask_hit() -> void:
 	health -= 1
-	velocity.y += 10
 	if health <= 0:
-		queue_free()
+		hide()
+		GameState.wins = 0
+		$death.start()
 	$healthCanvas/heartContainer.takeDamage(health)
 
 func _on_npc_hit() -> void:
@@ -82,8 +83,11 @@ func _on_npc_hit() -> void:
 
 func _on_hannya_hit_hannya() -> void:
 	health -= 1
-	velocity.y += 10
 	if health <= 0:
-		queue_free()
+		hide()
+		$death.start()
 	$hit.play()
 	$healthCanvas/heartContainer.takeDamage(health)
+	
+func _on_death_timeout() -> void:
+	get_tree().change_scene_to_file("res://game_over.tscn")

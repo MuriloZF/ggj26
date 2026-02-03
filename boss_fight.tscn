@@ -123,11 +123,12 @@ freeze = true
 script = ExtResource("7_htj63")
 
 [node name="spriteHannya" type="Sprite2D" parent="hannya"]
+position = Vector2(-1064, -56)
 texture = ExtResource("8_fl1h7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hannya"]
 light_mask = 2
-position = Vector2(-48, -76.5)
+position = Vector2(-1112, -88)
 shape = SubResource("RectangleShape2D_5lasl")
 
 [connection signal="timeout" from="maskTimer" to="." method="_on_mask_timer_timeout"]

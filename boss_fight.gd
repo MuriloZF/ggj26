@@ -1,6 +1,7 @@
 extends Node
 @export var maskScene : PackedScene = preload("res://mask.tscn")
 @onready var player: CharacterBody2D = $player
+var playerStartPosition = 1526
 
 enum difficult{
 	easy,
@@ -40,14 +41,18 @@ func _ready():
 	$fightTimer.start()
 	$maskTimer.start()
 
+func _process(delta):
+	if $player.position.y != playerStartPosition:
+		$player.position.y = playerStartPosition
+
 func setDifficult():
 	if GameState.wins < 2:
 		difficultLevel = difficult.easy
-	elif GameState.wins <= 2:
+	elif GameState.wins == 2:
 		difficultLevel = difficult.medium
-	elif GameState.wins <= 3:
+	elif GameState.wins == 3:
 		difficultLevel = difficult.hard
-	elif GameState.wins >= 4:
+	elif GameState.wins == 4:
 		difficultLevel = difficult.very_hard
 	else:
 		difficultLevel = difficult.ultra_very_hard 

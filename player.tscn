@@ -123,3 +123,9 @@ autoplay = true
 playback_type = 1
 
 [node name="hit" type="AudioStreamPlayer2D" parent="."]
+
+[node name="death" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="death" to="." method="_on_death_timeout"]
