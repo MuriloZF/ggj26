@@ -90,4 +90,4 @@ func _on_hannya_hit_hannya() -> void:
 	$healthCanvas/heartContainer.takeDamage(health)
 	
 func _on_death_timeout() -> void:
-	get_tree().change_scene_to_file("res://game_over.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://game_over.tscn")
